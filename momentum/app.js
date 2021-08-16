@@ -1,19 +1,16 @@
-const calculator = {
-    add : function(a, b) {
-        console.log(a + b);
-    },
-    min : function(a, b) {
-        console.log(a - b);
-    },
-    div : function(a, b) {
-        console.log(a / b);
-    },
-    pwOf : function(a, b) {
-        console.log(a ** b);
-    }
-};
+const loginInput = document.querySelector("#login-form input");
+const loginForm = document.querySelector("#login-form");
+const greeting = document.querySelector("#greeting");
 
-calculator.add(5, 3);
-calculator.min(5, 3);
-calculator.div(5, 3);
-calculator.pwOf(5, 3);
+const HIDDEN_CN = "hidden";
+
+function onLoginSubmit(event) {
+  event.preventDefault();
+  const username = loginInput.value;
+  loginForm.classList.add(HIDDEN_CN);
+  console.log(username);
+  greeting.innerText = `Hello ${username}`;
+  greeting.classList.remove(HIDDEN_CN);
+}
+
+loginForm.addEventListener("submit", onLoginSubmit);
